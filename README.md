@@ -3,7 +3,7 @@ A non-programmer-friendly game engine for creating Quest-like, cross-platform Te
 
 ## Features
 * Both the Editor and the resulting Game run in the browser, so they're truly cross-platform: if your device can run Chrome or Firefox, it can run the Icicle Engine.
-* Non-programmer-friendly: The engine includes code templates. If you've ever used software like GDevelop, Construct 2 etc. you should feel right at home - it's just a tiny step-up.
+* Non-programmer-friendly: The engine includes code templates. If you've ever used software like GDevelop, Construct 2 etc. you should feel right at home - it's just a tiny step-up. While not mandatory, we would recommend that you at least take a one-day JavaScript course at CodeCademy or other such site just to gain some familiarity with the language and what it can do :)
 * Lightweight: An empty game is only about 40KB!
 * Powerful: You can extend the built-in functionality with your own JavaScript, so there's no limits to what you can do!
 
@@ -11,6 +11,7 @@ A non-programmer-friendly game engine for creating Quest-like, cross-platform Te
 * Quotes cannot be used in the text of hyperlinks. Instead of ", please use \&quot; for now (if you use the code templates, you don't have to worry about that - they're all replaced automatically for you).
 * Room names cannot be changed dynamically - you can name a room immediately when the player enters it, but don't trigger this function after any sort of click (e.g. player clicks on hyperlink or interacts with an object) as it will break the game.
 * The CLEAR ALL TEXT command literally clears all text on screen, even if there are vital hyperlinks there that the player needs to click in order to progress into the game. We plan to make sure that hyperlinks are not deleted if they're still active.
+* Text boxes that take in variable names (orange) don't yet verify whether they're valid, so please follow the instructions in the tooltip for naming variables!
 
 ## Planned Additional Features
 * Support for Audio
@@ -103,6 +104,12 @@ Again, these are only intended for non-programmers. These allow you to execute c
 * IF...: If certain conditions are met, then do (whatever you wish).
 * ELSE IF...: Must only be used after an IF... statement. Allows you to define an alternative scenario.
 * ELSE...: Must only be used after either an IF... or an ELSE IF... statement. This will get executed if any previous IF... and ELSE IF... statements fail to execute (i.e. if their conditions are not met).
+
+## Text Box Colours
+If you use the code templates, you'll notice that the text boxes you need to fill in have different colours. They are explained below:
+* GREEN: A green text box means that it takes in pure text. Here, you can type up your scene description or whatever it is you're writing in GitHub-like markdown. If you wish to include an expression in your text, enclose it in ${ }, for example ${ pl.playerName }.
+* ORANGE: Orange text boxes take in variable names. Variable names may only contain letters, numbers, _ and $, and must start with any of those but NOT a number. Definitely NO SPACES are allowed!
+* PINK: Pink text boxes take in expressions, i.e. pure JavaScript. In case you're not a programmer: you can put a number here (e.g. 5), text (e.g. "Steve" - text must be enclosed in quotes!), booleans (true or false), values of other variables (e.g. pl.name - these are not enclosed in anything, unlike in the green text boxes) etc. Mathematical operators can also be used (*, -, /, +).
 
 # Customizing the Game
 If you wish to customize the final game (e.g. change the default colours), navigate over to the folder called Runtime Engine. The files "engine.html", "engine.css" and "engine.js" all together form the (unminified) runtime engine. The other file, "definitions.js", contains the gamescript. So all you need to do is export your game from the Editor using the "EXPORT GAMESCRIPT" option and overwrite the "definitions.js" file with the output. Then, if you open "engine.html" in a browser, you'll have a working game. You can customize the other three files to your heart's desire.

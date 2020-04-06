@@ -5,8 +5,8 @@ var ಠ_ಠ = 0;
 var gridSize = 1001;
 var mapScaler = 1;
 var zStorage = 0;
-lineNo = 0;
-comingFromEdit = false;
+var lineNo = 0;
+var comingFromEdit = false;
 
 // Variables that will need saving:
 var room = '0,0,0';
@@ -445,6 +445,8 @@ function addExits_carryOn(string) {
   if ($('#checkbox-6').prop('checked')) { command += 'northwest, '; dummy++; }
   if ($('#checkbox-7').prop('checked')) { command += 'southeast, '; dummy++; }
   if ($('#checkbox-8').prop('checked')) { command += 'southwest, '; dummy++; }
+  if ($('#checkbox-9').prop('checked')) { command += 'up, '; dummy++; }
+  if ($('#checkbox-10').prop('checked')) { command += 'down, '; dummy++; }
 
   if (dummy > 0) command = command.substring(0, command.length - 2);
   command += ');';
