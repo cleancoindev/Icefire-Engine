@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME</title>
+    <script src="engine.js"></script>
+    <link rel="stylesheet" href="engine.css" type="text/css">
+  </head>
+<body onload="onGameLoad();">
+  <div id="container">
+    <div id="sidePanel"></div>
+    <div id="mask"></div>
+    <div id="shadow"></div>
+    <div id="scene"></div>
+    <div id="map"></div>
+    <div id="controlPanel">
+      <div id="leftWindow">
+        <div class="navButton" id="up">UP</div>
+        <div class="navButton" id="down">DOWN</div>
+        <div class="button" id="surroundings_btn">SURROUNDINGS <b>(0)</b></div>
+        <div class="button" id="inventory_btn" style="margin-bottom: 0px;">INVENTORY <b>(0)</b></div>
+      </div>
+      <div id="controlsBox">
+        <div class="arrowContainer"><div class="arrow" id="northwest"></div></div>
+        <div class="arrowContainer"><div class="arrow" id="north"></div></div>
+        <div class="arrowContainer"><div class="arrow" id="northeast"></div></div>
+        <div class="arrowContainer"><div class="arrow" id="west"></div></div>
+        <div class="arrowContainer"><div id="zCounter">0</div></div>
+        <div class="arrowContainer"><div class="arrow" id="east"></div></div>
+        <div class="arrowContainer"><div class="arrow" id="southwest"></div></div>
+        <div class="arrowContainer"><div class="arrow" id="south"></div></div>
+        <div class="arrowContainer"><div class="arrow" id="southeast"></div></div>
+      </div>
+    </div>
+    <div id="tabs">
+      <div class="tab" id="game_btn">Console</div>
+      <div class="tab" id="map_btn">Map</div>
+      <div class="tab" id="stats_btn">Statistics</div>
+      <div class="tab" style="border-right-style: none;" id="settings_btn">Settings</div>
+    </div>
+  </div>
+  <script src="definitions.js"></script>
+</body>
+</html>
