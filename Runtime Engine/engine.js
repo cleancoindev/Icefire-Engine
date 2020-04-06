@@ -662,6 +662,9 @@ function addStat(string, symbol) {
 }
 function clearConsole() {
   dom_scene.innerHTML = "";
+}
+function clearConsole2() {
+  dom_scene.innerHTML = "";
   document.getElementById("statusReport").style.color = "green";
   return "Console has been cleared!";
 }
@@ -699,7 +702,7 @@ function showSettings() {
   dom_mask.innerHTML += "<div id='statusReport'></div>";
   document.getElementById("saveButton").addEventListener("click", function() { document.getElementById("statusReport").innerHTML = saveGame(document.getElementsByTagName("SELECT")[0].value); updateDropdown(); });
   document.getElementById("loadButton").addEventListener("click", function() { document.getElementById("statusReport").innerHTML = loadGame(document.getElementsByTagName("SELECT")[0].value); });
-  document.getElementById("clearButton").addEventListener("click", function() { document.getElementById("statusReport").innerHTML = clearConsole(); });
+  document.getElementById("clearButton").addEventListener("click", function() { document.getElementById("statusReport").innerHTML = clearConsole2(); });
   document.getElementById("fontSizeSlider").onchange = function() {
     fontSize = this.value;
     dom_scene.style.fontSize = fontSize + "em";
