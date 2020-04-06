@@ -10,11 +10,13 @@ A non-programmer-friendly game engine for creating Quest-like, cross-platform Te
 ## Known Issues
 * Quotes cannot be used in the text of hyperlinks. Instead of ", please use \&quot; for now (if you use the code templates, you don't have to worry about that - they're all replaced automatically for you).
 * Room names cannot be changed dynamically - you can name a room immediately when the player enters it, but don't trigger this function after any sort of click (e.g. player clicks on hyperlink or interacts with an object) as it will break the game.
+* The CLEAR ALL TEXT command literally clears all text on screen, even if there are vital hyperlinks there that the player needs to click in order to progress into the game. We plan to make sure that hyperlinks are not deleted if they're still active.
 
 ## Planned Additional Features
 * Support for Audio
 * Support for Images
 * Support for Timers
+
 (All the above can be used right now only if you're familiar with HTML and JavaScript.)
 
 # How to Run the Program
@@ -38,7 +40,7 @@ This is the Script View of the currently selected room. Any JavaScript entered h
 
 The following buttons are available to help you script your game:
 * Add action: This button contains the code templates for everything you need to make a game. This will automate the scripting process for you and so is useful if you are not a programmer, are unfamiliar with JavaScript, want to avoid syntax errors or simply can't be bothered to learn any of the in-built functions. Using these templates will also make your life easier - the PRINT command, for example, lets you type in the scene description using Markdown rather than raw HTML. More on scripting later.
-* Edit: Lets you edit a PRINT command that's already been added to the code editor. Just put the cursor on the line containing the command you wish to edit, click the button and the HTML will be rendered back to Markdown for you to edit. Once you're finished, press OK and the command will be updated accordingly. WARNING: The PRINT command must be the only command on the line. You will get an error if there are other commands on this line.
+* Edit: Lets you edit a PRINT command that's already been added to the code editor. Just put the cursor on the line containing the command you wish to edit, click the button and the HTML will be rendered back to Markdown for you to edit. Once you're finished, press OK and the command will be updated accordingly. WARNING: The PRINT command must be alone on its line. You will get an error if there are other commands on its line.
 * Check syntax: This will carry out some checks to make sure the syntax of your JavaScript is valid, and tell you where there is an error if there is one.
 * Increase/Decrease font size: Self-explanatory.
 
@@ -68,6 +70,8 @@ Below we will go through all the available actions:
 * ROOM NAME: Changes the name of the room on the map. This is visible to the player, but is also rendered onto the map in the Icicle Editor itself to help you keep track of what is where.
 
 ## Exits
+
+Whenever you add a new exit for the player to take, the new room(s) are created for you on the Editor's map.
 * ADD EXITS: Whenever a player enters a room, all exits are locked. This command lets you unlock any exits you wish so that the player can exit the room through them.
 * REMOVE EXITS: Locks any exits you wish so that the player cannot exit the room through them.
 * TELEPORT TO: Teleport the player to any room in the game.
@@ -102,3 +106,5 @@ Again, these are only intended for non-programmers. These allow you to execute c
 
 # Customizing the Game
 If you wish to customize the final game (e.g. change the default colours), navigate over to the folder called Runtime Engine. The files "engine.html", "engine.css" and "engine.js" all together form the (unminified) runtime engine. The other file, "definitions.js", contains the gamescript. So all you need to do is export your game from the Editor using the "EXPORT GAMESCRIPT" option and overwrite the "definitions.js" file with the output. Then, if you open "engine.html" in a browser, you'll have a working game. You can customize the other three files to your heart's desire.
+
+Note that all files in the "Runtime Engine" folder are NOT needed for the Editor to function properly - a minified copy of the runtime engine is included in the "Editor" folder as well.
