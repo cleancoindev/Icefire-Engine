@@ -2,6 +2,8 @@
 A non-programmer-friendly game engine for creating Quest-like, cross-platform Text Adventure games.
 
 ## Features
+* Automatic map generation
+* In-built game-saving mechanism
 * Both the Editor and the resulting Game run in the browser, so they're truly cross-platform: if your device can run Chrome or Firefox, it can run the Icefire Engine.
 * Non-programmer-friendly: The engine includes code templates. If you've ever used software like GDevelop, Construct 2 etc. you should feel right at home - it's just a tiny step-up. While not mandatory, we would recommend that you at least take a one-day JavaScript course at CodeCademy or other such site just to gain some familiarity with the language and what it can do :)
 * Lightweight: An empty game is only about 40KB!
