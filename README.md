@@ -1,8 +1,8 @@
-# Icicle-Engine v0.1
+# Icefire-Engine v0.1
 A non-programmer-friendly game engine for creating Quest-like, cross-platform Text Adventure games.
 
 ## Features
-* Both the Editor and the resulting Game run in the browser, so they're truly cross-platform: if your device can run Chrome or Firefox, it can run the Icicle Engine.
+* Both the Editor and the resulting Game run in the browser, so they're truly cross-platform: if your device can run Chrome or Firefox, it can run the Icefire Engine.
 * Non-programmer-friendly: The engine includes code templates. If you've ever used software like GDevelop, Construct 2 etc. you should feel right at home - it's just a tiny step-up. While not mandatory, we would recommend that you at least take a one-day JavaScript course at CodeCademy or other such site just to gain some familiarity with the language and what it can do :)
 * Lightweight: An empty game is only about 40KB!
 * Powerful: You can extend the built-in functionality with your own JavaScript, so there's no limits to what you can do!
@@ -21,7 +21,7 @@ A non-programmer-friendly game engine for creating Quest-like, cross-platform Te
 (All the above can be used right now only if you're familiar with HTML and JavaScript.)
 
 # How to Run the Program
-Download and extract the ZIP file of the latest release or the repository itself. Open the file "Editor/Icicle Editor.html" in either Chrome or Firefox - no other browsers have been tested. This will bring up the game editor - it runs in your browser, fully offline.
+Download and extract the ZIP file of the latest release or the repository itself. Open the file "Editor/Icefire Editor.html" in either Chrome or Firefox - no other browsers have been tested. This will bring up the game editor - it runs in your browser, fully offline.
 
 # How to Use the Editor
 The editor is made up of 3 tabs - the "Map" tab, the "Room Script" tab and the "Publish Game" tab.
@@ -68,7 +68,7 @@ Below we will go through all the available actions:
 * DISABLE ALL PRINTED HYPERLINKS: Disables all hyperlinks currently in the console. Any hyperlinks added in the future are not affected.
 
 ## Map
-* ROOM NAME: Changes the name of the room on the map. This is visible to the player, but is also rendered onto the map in the Icicle Editor itself to help you keep track of what is where.
+* ROOM NAME: Changes the name of the room on the map. This is visible to the player, but is also rendered onto the map in the Icefire Editor itself to help you keep track of what is where.
 
 ## Exits
 
