@@ -804,12 +804,18 @@ function load_carryOn() {
 }
 
 function load_finishUp() {
-  var json = JSON.parse(sessionStorage.json);
-  roomScripts = json.roomScripts;
-  directions = json.directions;
-  labels = json.labels;
-  squares = json.squares;
-  delete sessionStorage.json;
+  try {
+    var json = JSON.parse(sessionStorage.json);
+    roomScripts = json.roomScripts;
+    directions = json.directions;
+    labels = json.labels;
+    squares = json.squares;
+    delete sessionStorage.json;
+    alert("Project File loaded successfully!");
+  }
+  catch(error) {
+    alert("Could not load project file. Error: " + error);
+  }
 }
 
 function exportScript(downloadResult) {

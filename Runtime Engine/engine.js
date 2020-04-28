@@ -469,10 +469,12 @@ function removeRoomObjectAction(name, actionName) {
       break;
     }
   }
-  for (var i = 0; i < obj.actions.length; i++) {
-    if (obj.actions[i].name === actionName) {
-      var index = obj.actions.indexOf(obj.actions[i]);
-      obj.actions.splice(index, 1);
+  if (typeof obj !== 'undefined') {
+    for (var i = 0; i < obj.actions.length; i++) {
+      if (obj.actions[i].name === actionName) {
+        var index = obj.actions.indexOf(obj.actions[i]);
+        obj.actions.splice(index, 1);
+      }
     }
   }
 }
@@ -531,10 +533,12 @@ function removeInventoryObjectAction(name, actionName) {
       break;
     }
   }
-  for (var i = 0; i < obj.actions.length; i++) {
-    if (obj.actions[i].name === actionName) {
-      var index = obj.actions.indexOf(obj.actions[i]);
-      obj.actions.splice(index, 1);
+  if (typeof obj !== 'undefined') {
+    for (var i = 0; i < obj.actions.length; i++) {
+      if (obj.actions[i].name === actionName) {
+        var index = obj.actions.indexOf(obj.actions[i]);
+        obj.actions.splice(index, 1);
+      }
     }
   }
 }
