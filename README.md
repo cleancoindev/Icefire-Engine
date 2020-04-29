@@ -1,5 +1,7 @@
-# Icefire-Engine v0.1
+# Icefire-Engine
 A non-programmer-friendly game engine for creating Quest-like, cross-platform Text Adventure games.
+
+TUTORIAL: https://youtu.be/ax2jOb14gpM
 
 ## Features
 * Automatic map generation

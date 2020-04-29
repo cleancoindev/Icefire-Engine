@@ -8,87 +8,100 @@ definitions['0,0,0'] = function() {
 
     roomName(`Start<br>Screen`);
 
-    pl.introDisplayed = false;
     pl.keyTaken = false;
-    pl.hp = 100;
-    addStat(`hp`, `%`);
 
-    teleport(`0,0,1`);
+    print(`Welcome to my little exemplar game!<br><br>The aim is simple: you want to go shopping but have lost the key to your front door somewhere. Find and take the key in order to get out of the house and finish the game!<br><br>Click the hyperlink below to get started!`);
+
+    print(hyperlink(`Start Game`, function() {
+        // Add any code you want executed when the user clicks on the hyperlink below this comment!
+        teleport(`0,0,1`);
+    }));
+
+    pl.hp = 100;
+
+    addStat(`hp`, `%`);
 }
 
 definitions['0,0,1'] = function() {
     roomName(`Living<br>Room`);
 
-    if (pl.introDisplayed === false) {
-        pl.introDisplayed = true;
-        print(`Welcome to my little exemplar game!<br><br>You need to go out and do some shopping but lost the key to your front door somewhere. Your objective is to find it and get out of the house!`);
-    }
+    print(`You are in your living room. To the EAST is the front door, to the NORTH is the bathroom and to the SOUTHWEST is the kitchen.`);
 
-    print(`You are in your living room. To the NORTH is the kitchen. To the EAST and WEST are hallways.`);
-
-    addExits(north, east, west);
+    addExits(north, east, southwest);
 }
 
 definitions['0,1,1'] = function() {
-    roomName(`Kitchen`);
+    print(`You are in a hallway.`);
 
-    print(`You are in your kitchen. There is nothing of interest here apart from a very large window you can probably use to get out of the house and see if you dropped the key somewhere nearby.`);
-
-    addRoomObjectAction(`window`, `open`, function() {
-        print(`You try to open the window, but it's stuck. Of all days!`);
-    });
-
-    addExits(south);
+    addExits(north, south);
 }
 
 definitions['1,0,1'] = function() {
     print(`You are in a hallway.`);
-    addExits(east, west);
 
-    removeInventoryObjectAction(`key`, `use`);
+    addExits(east, west);
 }
 
-definitions['-1,0,1'] = function() {
+definitions['-1,-1,1'] = function() {
+    roomName(`Kitchen`);
+
+    print(`You are in the kitchen. There is a large window here.`);
+
+    addRoomObjectAction(`window`, `look at`, function() {
+        // Add any code you want executed when the user chooses to do the above action below this comment!
+        print(`This window has been jammed for ages. You should really think about getting it fixed…`);
+    });
+
+    addExits(northeast);
+}
+
+definitions['0,2,1'] = function() {
     print(`You are in a hallway.`);
-    addExits(east, west);
+
+    addExits(north, south);
 }
 
-definitions['-2,0,1'] = function() {
-    print(`You are in a hallway.`);
-    addExits(east, west);
-}
+definitions['0,3,1'] = function() {
+    roomName(`Bathroom`);
 
-definitions['-3,0,1'] = function() {
-    roomName(`Garden`);
+    print(`You are in the bathroom.`);
 
-    print(`You are in your garden. You can see a key lying in the grass.`);
+    addExits(south);
 
     if (pl.keyTaken === false) {
+        // Add any actions you wanted executed when the above conditions are met below this comment!
+        print(`There is a key lying on the floor.`);
         addRoomObjectAction(`key`, `take`, function() {
-            print(`You pick up the key.`);
+            // Add any code you want executed when the user chooses to do the above action below this comment!
             removeRoomObject(`key`);
-            pl.keyTaken = true;
             addInventoryObjectAction(`key`, `look at`, function() {
-                print(`The key to the front door of your house.`);
+                // Add any code you want executed when the user chooses to do the above action below this comment!
+                print(`This is the key to your front door!`);
             });
+            pl.keyTaken = true;
+            print(`You take the key.`);
         });
+    } else {
+        // Add any actions you want executed if none of the above 'if' statements are run below this comment!
+        print(`You have already taken the key that was here. You see nothing else of interest.`);
     }
-
-    addExits(east);
 }
 
 definitions['2,0,1'] = function() {
     roomName(`Front<br>Door`);
 
-    print(`You are by your front door. If you have the key, you can open it and end the game!`);
+    print(`You are by the front door.`);
 
     addExits(west);
 
     if (pl.keyTaken === true) {
-        addInventoryObjectAction(`key`, `use`, function() {
-            print(`You use the key to open the door and leave your house. The end!`);
+        // Add any actions you wanted executed when the above conditions are met below this comment!
+        print(`You have the key, so you may leave!`);
+        print(hyperlink(`Leave house`, function() {
+            // Add any code you want executed when the user clicks on the hyperlink below this comment!
+            print(`You leave the house. The end.`);
             killGame();
-        });
+        }));
     }
 }
 
